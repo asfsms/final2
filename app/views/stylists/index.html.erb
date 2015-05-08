@@ -1,0 +1,16 @@
+<h1>Meet our stylists</h1>
+
+<div class="row">
+ <% @stylists.each do |stylist| %>
+  <div class="col-sm-6">
+	<div class="thumbnail">
+	  <a href="/stylists/<%= stylist.id %>"> <img src="/assets/<%= stylist.image %>" width="200"></a> 
+	  <div class="caption">
+	   <center><h4><%= link_to stylist.first_name, stylist_url(stylist)%></h4></a></center>
+	  </div>
+	</div>
+  </div>
+ <% end %>
+</div>
+
+<a href="/shoppers"> <h4> Customer List </h4> 

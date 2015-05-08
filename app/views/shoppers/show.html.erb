@@ -1,0 +1,17 @@
+<h3> <%= @shopper.first_name + " " + @shopper.last_name %></h3>
+
+<% @shopper.attributes.each do |key, value| %>
+  <p><%= key %>: <%= value %></p>
+<% end %>
+
+<br>
+<h4><i><b><%= @shopper.first_name %>'s boxes:</b></i></h4>
+
+<% @boxes.each do |box| %>
+	 	<% stylist = Stylist.find_by(id: box.stylist_id) %>
+	 	<p><b><%= Box_type.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to stylist.first_name, stylist_url(stylist) %> on <%= box.date%></p>
+<% end %>
+
+<br>
+<a href="/shoppers"> <h4> Customer List </h4> 
+<a href="/stylists"> <h4> Our Stylists </h4> 

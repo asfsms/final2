@@ -1,0 +1,67 @@
+Shopper:
+  # Basic Information:
+  first_name: string
+  last_name: string
+  dob: integer
+  date_joined: string
+  how_heard: string
+  # Contact Information:
+  phone_number: string
+  address: text
+  city: string
+  state: string
+  country: string
+  zip: string
+  # Account Information
+  email: string
+  password: string
+  # Size and build:
+  height: integer
+  weight: integer
+  clothes_size: integer
+  shoe_size: integer
+  # Style - self report:
+  work_style: string
+  evening_style: string
+  favorite_look: integer # Pick a favorite look out of several options
+  # Style - office report:
+  style_id: integer 
+  shopper_comments: text # free general text regarding the shopper
+  # Stylist
+  stylist_id: integer
+  date_started: string
+
+Stylist:
+  # Basic Information:
+  first_name: string
+  last_name: string
+  image: string
+  # Account Information
+  email: string
+  password: string
+
+Style: # segment type - defined internally: plus size, young professional, etc.
+  style_type: string
+  style_description: text
+
+Stylist_expertise:
+  stylist_id: integer
+  style_id: integer
+
+Box:
+  shopper_id: integer
+  stylist_id: integer
+  boxtype_id: integer 
+  date: string
+  link: string # connected to e-commerce platform - shows items
+  order: integer # connected to e-commerce platform
+  invoice: integer # connected to e-commerce platform
+  comments: text # stylist can use this box to explain the decision behind the box items
+
+Box_type: # e.g. the perfect business outfit, the summer vacation box etc.
+  name: string
+  description: text
+
+
+
+
