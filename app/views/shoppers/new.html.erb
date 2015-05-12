@@ -68,9 +68,9 @@
     <%= form.label :shopper_comments %>
     <%= form.text_field :shopper_comments, class: "form-control" %>
   </div>
-    <div class="form-group">
-    <%= form.label :stylist_id %>
-    <%= form.text_field :stylist_id, class: "form-control" %>
-  </div>
+  <div class="form-group">
+    <%= form.label :stylist %>
+    <%= form.collection_select(:stylist_id, Stylist.all, :id, :first_name, {}, {class: "form-control"}) %>
+  </div>  
   <%= form.button 'Create Customer', class: "btn btn-success" %>
 <% end %>

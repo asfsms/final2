@@ -7,9 +7,8 @@
 <br>
 <h4><i><b><%= @shopper.first_name %>'s boxes:</b></i></h4>
 
-<% @boxes.each do |box| %>
-	 	<% stylist = Stylist.find_by(id: box.stylist_id) %>
-	 	<p><b><%= Box_type.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to stylist.first_name, stylist_url(stylist) %> on <%= box.date%></p>
+<% @shopper.boxes.each do |box| %>
+	 	<p><b><%= Box_type.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to box.stylist.first_name, stylist_url(box.stylist) %> on <%= box.date%></p>
 <% end %>
 
 <br>
