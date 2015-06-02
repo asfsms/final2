@@ -1,22 +1,18 @@
-<h1>Customer List</h1>
+<h3 class="page-header">
+  All Customers
+  <span class="pull-right">
+    <%= link_to "New User", new_shopper_path, class: 'btn btn-sm btn-success' %>
+  </span>
+</h3>
 
-<div class="row">
- <% @shoppers.each do |shopper| %>
-  <div class="col-sm-6">
-	<div class="thumbnail">
-	  <div class="caption">
-	   <center>
-	   <h4><%= link_to shopper.first_name + " " + shopper.last_name, shopper_url(shopper)%></h4>
-	   <p><%= link_to "[edit]", edit_shopper_url(shopper) %>
-	   <%= link_to "[delete]", shopper_url(shopper), method: :delete, data: { confirm: 'Seriously?'} %></p>
-	   </center>
-	  </div>
-	</div>
-  </div>
- <% end %>
-</div>
+<ul>
+  <% @shoppers.each do |shopper| %>
+    <li><%= shopper.first_name + " " + shopper.last_name %> <%= link_to "Edit", edit_shopper_path(shopper) %> <%= link_to "Delete", shopper_path(shopper), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+</ul>
 
 <span class="pull-right">
     <%= link_to "New Customer", new_shopper_path, class: 'btn btn-sm btn-success' %>
   </span>
 <a href="/stylists"> <h4> Our Stylists </h4> 
+

@@ -1,12 +1,14 @@
 class ShoppersController < ApplicationController
 
+  skip_before_action :auth, only: [:index, :show]
+
   def index
     @shoppers = Shopper.all
   end
 
   def show
   	@shopper = Shopper.find_by(id: params["id"])
-  	@boxes = Box.where(shopper_id: params["id"])
+  	#@boxes = Box.where(shopper_id: params["id"])
   end
 
   def new
@@ -14,8 +16,12 @@ class ShoppersController < ApplicationController
   end
 
   def create
-	Shopper.create(params["shopper"])
-  	redirect_to shoppers_url
+    @shopper = Shopper.create(params["shopper"])
+    if @shopper.valid?
+      redirect_to shoppers_path, notice: "Great, we have a new customer!!!"
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -25,13 +31,13 @@ class ShoppersController < ApplicationController
   def update
   	@shopper = Shopper.find_by(id: params["id"])
   	@shopper.update(params["shopper"])
-   	redirect_to shoppers_url
+   	redirect_to shoppers_path
   end
 
   def destroy
   	@shopper = Shopper.find_by(id: params["id"])
-  	@shopper.delete
-  	redirect_to shoppers_url
+  	@shopper.destroy
+  	redirect_to shoppers_path
   end
 
 end

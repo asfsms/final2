@@ -14,7 +14,7 @@ Shopper:
   zip: string
   # Account Information
   email: string
-  password: string
+  password_digest: string
   # Size and build:
   height: integer
   weight: integer
@@ -38,7 +38,7 @@ Stylist:
   image: string
   # Account Information
   email: string
-  password: string
+  password_digest: string
 
 Style: # segment type - defined internally: plus size, young professional, etc.
   style_type: string

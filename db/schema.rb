@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "country"
     t.string  "zip"
     t.string  "email"
-    t.string  "password"
+    t.string  "password_digest"
     t.integer "height"
     t.integer "weight"
     t.integer "clothes_size"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "last_name"
     t.string "image"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end
