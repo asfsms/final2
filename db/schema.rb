@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150602211453) do
 
   create_table "box_types", force: :cascade do |t|
     t.string "box_name"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "boxes", force: :cascade do |t|
-    t.integer "shopper_id"
     t.integer "stylist_id"
     t.string  "date"
     t.string  "link"
@@ -29,41 +28,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "invoice"
     t.text    "comments"
     t.integer "boxtype_id"
+    t.integer "user_id"
   end
 
   add_index "boxes", ["boxtype_id"], name: "index_boxes_on_boxtype_id"
-  add_index "boxes", ["shopper_id"], name: "index_boxes_on_shopper_id"
   add_index "boxes", ["stylist_id"], name: "index_boxes_on_stylist_id"
-
-  create_table "shoppers", force: :cascade do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.integer "dob"
-    t.string  "date_joined"
-    t.string  "how_heard"
-    t.string  "phone_number"
-    t.text    "address"
-    t.string  "city"
-    t.string  "state"
-    t.string  "country"
-    t.string  "zip"
-    t.string  "email"
-    t.string  "password_digest"
-    t.integer "height"
-    t.integer "weight"
-    t.integer "clothes_size"
-    t.integer "shoe_size"
-    t.string  "work_style"
-    t.string  "evening_style"
-    t.integer "favorite_look"
-    t.integer "style_id"
-    t.text    "shopper_comments"
-    t.integer "stylist_id"
-    t.string  "date_started"
-  end
-
-  add_index "shoppers", ["style_id"], name: "index_shoppers_on_style_id"
-  add_index "shoppers", ["stylist_id"], name: "index_shoppers_on_stylist_id"
+  add_index "boxes", ["user_id"], name: "index_boxes_on_user_id"
 
   create_table "styles", force: :cascade do |t|
     t.string "style_type"
@@ -85,5 +55,35 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "email"
     t.string "password_digest"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.integer "dob"
+    t.string  "date_joined"
+    t.string  "how_heard"
+    t.string  "phone_number"
+    t.text    "address"
+    t.string  "city"
+    t.string  "state"
+    t.string  "country"
+    t.string  "zip"
+    t.string  "email"
+    t.string  "password_digest"
+    t.integer "height"
+    t.integer "weight"
+    t.integer "clothes_size"
+    t.integer "shoe_size"
+    t.string  "work_style"
+    t.string  "evening_style"
+    t.integer "favorite_look"
+    t.integer "style_id"
+    t.integer "stylist_id"
+    t.string  "date_started"
+    t.text    "user_comments"
+  end
+
+  add_index "users", ["style_id"], name: "index_users_on_style_id"
+  add_index "users", ["stylist_id"], name: "index_users_on_stylist_id"
 
 end
