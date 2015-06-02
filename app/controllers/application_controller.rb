@@ -3,18 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_shopper  
+  helper_method :current_user  
   before_action :auth
 
   def auth
-    if current_shopper
+    if current_user
     else
       redirect_to new_session_url
     end
   end
 
-  def current_shopper
-    Shopper.find_by(id: session["shopper_id"]) 
+  def current_user
+    User.find_by(id: session["user_id"]) 
   end
 
 end

@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
     # params["email"] => the email address
     # params["password"] => the password
     
-    @shopper = Shopper.find_by(email: params["email"])
-    if @shopper.present?
+    @user = User.find_by(email: params["email"])
+    if @user.present?
       # Yes, the user exists
-      if @shopper.authenticate(params["password"])
-        session["shopper_id"] = @shopper.id
+      if @user.authenticate(params["password"])
+        session["user_id"] = @user.id
         redirect_to root_url
       else
         redirect_to new_session_url, alert: 'No way!!!'
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session["shopper_id"] = nil
+    session["user_id"] = nil
     redirect_to root_url, notice: "See ya later!"
   end
 

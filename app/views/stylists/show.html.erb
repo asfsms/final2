@@ -9,11 +9,11 @@
 <br>
 <h4><i><b>Happy customers of <%= @stylist.first_name %>:</b></i></h4>
 
-<% @shoppers.each do |shopper| %>
-	 	<p><%= shopper.first_name %></p>
+<% @users.each do |user| %>
+	 	<p><%= user.first_name %></p>
 <% end %>
 
 <br>
 
 <a href="/stylists"> <h4> Our Stylists </h4> 
-<a href="/shoppers"> <h4> Customer List </h4> 
+<a href="/users"> <h4> Customer List </h4> 
