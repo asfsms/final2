@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Shopper < ActiveRecord::Base
 	belongs_to :stylist
 	belongs_to :style
 	has_many :boxes

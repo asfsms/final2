@@ -1,16 +1,16 @@
-<h3> <%= @user.first_name + " " + @user.last_name %></h3>
+<h3> <%= @shopper.first_name + " " + @shopper.last_name %></h3>
 
-<% @user.attributes.each do |key, value| %>
+<% @shopper.attributes.each do |key, value| %>
   <p><%= key %>: <%= value %></p>
 <% end %>
 
 <br>
-<h4><i><b><%= @user.first_name %>'s boxes:</b></i></h4>
+<h4><i><b><%= @shopper.first_name %>'s boxes:</b></i></h4>
 
-<% @user.boxes.each do |box| %>
+<% @shopper.boxes.each do |box| %>
 	 	<p><b><%= Box_type.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to box.stylist.first_name, stylist_url(box.stylist) %> on <%= box.date%></p>
 <% end %>
 
 <br>
-<a href="/users"> <h4> Customer List </h4> 
+<a href="/shoppers"> <h4> Customer List </h4> 
 <a href="/stylists"> <h4> Our Stylists </h4> 
