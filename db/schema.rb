@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "boxes", force: :cascade do |t|
-    t.integer "shopper_id"
+    t.integer "user_id"
     t.integer "stylist_id"
     t.string  "date"
     t.string  "link"
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_index "boxes", ["boxtype_id"], name: "index_boxes_on_boxtype_id"
-  add_index "boxes", ["shopper_id"], name: "index_boxes_on_shopper_id"
+  add_index "boxes", ["user_id"], name: "index_boxes_on_user_id"
   add_index "boxes", ["stylist_id"], name: "index_boxes_on_stylist_id"
 
-  create_table "shoppers", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.integer "dob"
@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "evening_style"
     t.integer "favorite_look"
     t.integer "style_id"
-    t.text    "shopper_comments"
+    t.text    "user_comments"
     t.integer "stylist_id"
     t.string  "date_started"
   end
 
-  add_index "shoppers", ["style_id"], name: "index_shoppers_on_style_id"
-  add_index "shoppers", ["stylist_id"], name: "index_shoppers_on_stylist_id"
+  add_index "users", ["style_id"], name: "index_users_on_style_id"
+  add_index "users", ["stylist_id"], name: "index_users_on_stylist_id"
 
   create_table "styles", force: :cascade do |t|
     t.string "style_type"

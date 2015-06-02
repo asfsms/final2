@@ -1,4 +1,4 @@
-Shopper:
+User:
   # Basic Information:
   first_name: string
   last_name: string
@@ -26,7 +26,7 @@ Shopper:
   favorite_look: integer # Pick a favorite look out of several options
   # Style - office report:
   style_id: integer 
-  shopper_comments: text # free general text regarding the shopper
+  user_comments: text # free general text regarding the user
   # Stylist
   stylist_id: integer
   date_started: string
@@ -49,7 +49,7 @@ Stylist_expertise:
   style_id: integer
 
 Box:
-  shopper_id: integer
+  user_id: integer
   stylist_id: integer
   boxtype_id: integer 
   date: string
