@@ -11,24 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602211453) do
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "box_types", force: :cascade do |t|
-    t.string "box_name"
-    t.text   "box_description"
     t.string "name"
     t.text   "description"
   end
 
   create_table "boxes", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "stylist_id"
+    t.integer "boxtype_id"
     t.string  "date"
     t.string  "link"
     t.integer "order"
     t.integer "invoice"
     t.text    "comments"
-    t.integer "boxtype_id"
-    t.integer "user_id"
   end
 
   add_index "boxes", ["boxtype_id"], name: "index_boxes_on_boxtype_id"
@@ -78,9 +76,9 @@ ActiveRecord::Schema.define(version: 20150602211453) do
     t.string  "evening_style"
     t.integer "favorite_look"
     t.integer "style_id"
+    t.text    "user_comments"
     t.integer "stylist_id"
     t.string  "date_started"
-    t.text    "user_comments"
   end
 
   add_index "users", ["style_id"], name: "index_users_on_style_id"
