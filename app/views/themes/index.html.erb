@@ -1,0 +1,13 @@
+<div class="row">
+  <% @themes.each do |theme| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to image_tag(theme.image), theme_url(theme) %>
+        <div class="caption">
+          <h3><%= link_to theme.name, theme_url(theme) %></h3>
+          <p><%= theme.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

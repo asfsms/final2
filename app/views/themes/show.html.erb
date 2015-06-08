@@ -1,0 +1,16 @@
+<h1 class="title">
+  <%= @theme.name %>
+</h1>
+
+<div class="row">
+  <div class="col-md-3 text-center">
+    <p><%= image_tag(@theme.image, :size => "270x270") %></p>
+    <p><a href="#" class="btn btn-sm btn-success"><i class="fa fa-shopping-cart"></i> I want that! </a></p>
+  </div>
+  <div class="col-md-4 summary">
+    <p>
+      <%= @theme.description %>
+    </p>
+  </div>
+</div>
+

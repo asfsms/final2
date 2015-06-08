@@ -1,7 +1,7 @@
 <h3 class="page-header">
   All Customers
   <span class="pull-right">
-    <%= link_to "New User", new_user_path, class: 'btn btn-sm btn-success' %>
+    <%= link_to "New Customer", new_user_path, class: 'btn btn-sm btn-success' %>
   </span>
 </h3>
 
@@ -10,9 +10,3 @@
     <li><%= user.first_name + " " + user.last_name %> <%= link_to "Edit", edit_user_path(user) %> <%= link_to "Delete", user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></li>
   <% end %>
 </ul>
-
-<span class="pull-right">
-    <%= link_to "New Customer", new_user_path, class: 'btn btn-sm btn-success' %>
-  </span>
-<a href="/stylists"> <h4> Our Stylists </h4> 
-

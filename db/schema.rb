@@ -13,11 +13,6 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "box_types", force: :cascade do |t|
-    t.string "name"
-    t.text   "description"
-  end
-
   create_table "boxes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "stylist_id"
@@ -51,7 +46,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "last_name"
     t.string "image"
     t.string "email"
-    t.string "password_digest"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "name"
+    t.text   "description"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,7 +8,7 @@
 <h4><i><b><%= @user.first_name %>'s boxes:</b></i></h4>
 
 <% @user.boxes.each do |box| %>
-	 	<p><b><%= Box_type.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to box.stylist.first_name, stylist_url(box.stylist) %> on <%= box.date%></p>
+	 	<p><b><%= Theme.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to box.stylist.first_name, stylist_url(box.stylist) %> on <%= box.date%></p>
 <% end %>
 
 <br>

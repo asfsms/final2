@@ -24,7 +24,7 @@ User:
   work_style: string
   evening_style: string
   favorite_look: integer # Pick a favorite look out of several options
-  # Style - office report:
+  # Style - decided internally:
   style_id: integer 
   user_comments: text # free general text regarding the user
   # Stylist
@@ -38,7 +38,7 @@ Stylist:
   image: string
   # Account Information
   email: string
-  password_digest: string
+  #password_digest: string
 
 Style: # segment type - defined internally: plus size, young professional, etc.
   style_type: string
@@ -58,8 +58,9 @@ Box:
   invoice: integer # connected to e-commerce platform
   comments: text # stylist can use this box to explain the decision behind the box items
 
-Box_type: # e.g. the perfect business outfit, the summer vacation box etc.
+Theme: # e.g. the perfect business outfit, the summer vacation box etc.
   name: string
+  image: string
   description: text
 
 
