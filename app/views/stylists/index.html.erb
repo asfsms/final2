@@ -1,14 +1,69 @@
-<h1>Meet our stylists</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
 
+  <link href="//fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
+  <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+
+  <style>
+
+    /* http://css-tricks.com/perfect-full-page-background-image/ */
+    html {
+    }
+
+    body {
+      padding-top: 20px;
+      font-size: 20px;
+      font-family: "Abel", arial, sans-serif;
+      background: transparent;
+    }
+
+    h1 {
+      font-family: 'Poiret One', cursive;
+      font-weight: 400;
+      font-size: 50px;
+    }
+
+    h3 {
+      font-family: 'Poiret One', cursive;
+      font-weight: 400;
+      font-size: 30px;
+    }
+    /* Override B3 .panel adding a subtly transparent background */
+    .panel {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .margin-base-vertical {
+      margin: 30px 0;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<h3><b>Our Stylists</b></h3>
 <div class="row">
- <% @stylists.each do |stylist| %>
-  <div class="col-sm-6">
-	<div class="thumbnail">
-	  <a href="/stylists/<%= stylist.id %>"> <img src="/assets/<%= stylist.image %>" width="200"></a> 
-	  <div class="caption">
-	   <center><h4><%= link_to stylist.first_name, stylist_url(stylist)%></h4></a></center>
-	  </div>
-	</div>
-  </div>
- <% end %>
+  <% @stylists.each do |stylist| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to image_tag(stylist.image), stylist_url(stylist) %>
+        <div class="caption">
+          <h3><%= link_to stylist.first_name, stylist_url(stylist) %></h3>
+          <p><%= stylist.email %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<br>
+</body>
+</html>
+

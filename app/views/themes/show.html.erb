@@ -1,16 +1,68 @@
-<h1 class="title">
-  <%= @theme.name %>
-</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
 
+  <link href="//fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
+  <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+
+  <style>
+
+    /* http://css-tricks.com/perfect-full-page-background-image/ */
+    html {
+    }
+
+    body {
+      padding-top: 20px;
+      font-size: 15px;
+      font-family: "Abel", arial, sans-serif;
+      background: transparent;
+    }
+
+    h1 {
+      font-family: 'Poiret One', cursive;
+      font-weight: 400;
+      font-size: 50px;
+    }
+
+    h3 {
+      font-family: 'Poiret One', cursive;
+      font-weight: 400;
+      font-size: 30px;
+    }
+    /* Override B3 .panel adding a subtly transparent background */
+    .panel {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .margin-base-vertical {
+      margin: 30px 0;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<h3><b><%= @theme.name %></b></h3>
 <div class="row">
-  <div class="col-md-3 text-center">
-    <h1><%= image_tag(@theme.image, :size => "270x270") %></h1>
-    <%= link_to 'Get This Box', new_theme_box_path(@theme) %>
-  </div>
-  <div class="col-md-4 summary">
-    <p>
-      <%= @theme.description %>
-    </p>
-  </div>
+    <div class="col-sm-4 col-sm-4">
+      <div class="thumbnail">
+        <%= image_tag(@theme.image)%>
+        <div class="caption">
+          <p><%= @theme.description %></p>
+          <p class="text-center"> <%=link_to "Get This Box", new_theme_box_path(@theme), class:"btn btn-success btn-lg" %></p>
+
+        </div>
+      </div>
+    </div>
 </div>
+
+<br>
+</body>
+</html>
 
