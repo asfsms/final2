@@ -6,8 +6,8 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
 
-  <link href="http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
-  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href="//fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
+  <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 
 
   <style>
@@ -51,19 +51,6 @@
 <h1 class="margin-base-vertical"><%= @user.first_name + " " + @user.last_name %>'s Page</h1>
 <hr><br>
 
-<% if @user.stylist_id %>
-<div class="container">
-    <div class="row">
-      <div class="col-md-5 col-md-1 panel panel-default">
-        <h3 class="margin-base-vertical">Your Stylist:</h3>
-        <%= link_to image_tag(@user.stylist.image), stylist_url(@user.stylist)%>
-<p>Hi <%= @user.first_name%>, my name is <%= @user.stylist.first_name %> and I'm excited to help you out with upgrading your wardrobe.<br> Please feel free to contact me anytime. I'm available right <a href="mailto:<% @user.stylist.email%>" target="_top">here</a>. XOXO </p>
-      </div><!-- //main content -->
-    </div><!-- //row -->
-  </div> <!-- //container -->
-<% end %>
-<hr><br>
-
 <h3><b>Get a new delivery of beautiful outfits</b></h3>
 <p>Select one of the following themes and your stylist will get it shipped today:</b></p>
 <div class="row">
@@ -79,6 +66,19 @@
     </div>
   <% end %>
 </div>
+<hr><br>
+
+<% if @user.stylist_id %>
+<div class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-1 panel panel-default">
+        <h3 class="margin-base-vertical">Your Stylist:</h3>
+        <a href="/stylists/<%= @user.stylist.id %>"> <img src="/assets/<%= @user.stylist.image %>" width="300"></a> 
+<p>Hi <%= @user.first_name%>, my name is <%= @user.stylist.first_name %> and I'm excited to help you out with upgrading your wardrobe.<br> Please feel free to contact me anytime. I'm available right <a href="mailto:<% @user.stylist.email%>" target="_top">here</a>. XOXO </p>
+      </div><!-- //main content -->
+    </div><!-- //row -->
+  </div> <!-- //container -->
+<% end %>
 <hr><br>
 
 <h3><b>Your past orders:</b></h3>
