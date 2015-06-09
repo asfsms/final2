@@ -38,8 +38,7 @@
           </button>
 
           <!-- Rails equivalent to -->
-          <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
-          <%= link_to "Ruti Garage", root_path, class: "navbar-brand" %>
+          <b><%= link_to "RUTI GARAGE", root_path, class: "navbar-brand" %></b>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,6 +62,7 @@
             <% end %>
             <% if current_user %>
               <li><%= link_to current_user.try(:first_name)+"'s Page", current_user %></li>
+              <li><%= link_to "Edit Profile", edit_user_url %></li>
               <li><%= link_to "Logout", logout_url %></li>
             <% else %>
               <li><%= link_to "Log In", new_session_url %></li>

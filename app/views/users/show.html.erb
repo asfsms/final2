@@ -29,6 +29,11 @@
       font-size: 50px;
     }
 
+    h3 {
+      font-family: 'Poiret One', cursive;
+      font-weight: 400;
+      font-size: 30px;
+    }
     /* Override B3 .panel adding a subtly transparent background */
     .panel {
       background-color: rgba(255, 255, 255, 0.9);
@@ -46,44 +51,43 @@
 <h1 class="margin-base-vertical"><%= @user.first_name + " " + @user.last_name %>'s Page</h1>
 <hr><br>
 
-<p>Your Stylist:</p>
-<img src="/assets/<%= @user.stylist.image %>" width="200">
-<p>Hi <%= @user.first_name%>, my name is <%= @user.stylist.first_name %> and I'm excited to help you out with upgrading your wardrobe.<br> Please feel to contact me anytime. I'm availavle right <a href="mailto:"<% @user.stylist.email%> target="_top">here</a>. XOXO </p>
-
-
-<%= @user.stylist.email %>. XOXO
-<hr><br>
-
-
-
-<h4><i><b><%= @user.first_name %>'s boxes:</b></i></h4>
-
-<% @user.boxes.each do |box| %>
-	 	<p><b><%= Theme.find_by(id: box.boxtype_id).name %></b> created by our stylist <%= link_to box.stylist.first_name, stylist_url(box.stylist) %> on <%= box.date%></p>
-<% end %>
-
-  <div class="container">
+<% if @user.stylist_id %>
+<div class="container">
     <div class="row">
-      <div class="col-md-4 col-md-offset-1 panel panel-default">
-        <h1 class="margin-base-vertical">Ruti Garage</h1>
-        <p>
-          Your personal stylist will find the most flattering and comfortable items to fit your style, budget, and existing wardrobe.
-        </p>
-        <form class="margin-base-vertical">
-
-          <p class="help-block text-center"><small>Click here to start your journey</small></p>
-          <p class="text-center"> <%=link_to "Let's Get Started!", new_user_url, class:"btn btn-success btn-lg" %></p>
-          </span>
-        </form>
-
-        <div class="margin-base-vertical">
-          <small class="text-muted">All rights reserved</a>.</small>
-        </div>
-
+      <div class="col-md-5 col-md-1 panel panel-default">
+        <h3 class="margin-base-vertical">Your Stylist:</h3>
+        <img src="/assets/<%= @user.stylist.image %>" width="200">
+<p>Hi <%= @user.first_name%>, my name is <%= @user.stylist.first_name %> and I'm excited to help you out with upgrading your wardrobe.<br> Please feel to contact me anytime. I'm availavle right <a href="mailto:<% @user.stylist.email%>" target="_top">here</a>. XOXO </p>
       </div><!-- //main content -->
     </div><!-- //row -->
   </div> <!-- //container -->
+<% end %>
+<hr><br>
 
+<h3><b>Get a new delivery of beautiful outfits</b></h3>
+<p>Select one of the following themes and your stylist will get it shipped today:</b></p>
+<div class="row">
+  <% @themes.each do |theme| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to image_tag(theme.image), theme_url(theme) %>
+        <div class="caption">
+          <h3><%= link_to theme.name, theme_url(theme) %></h3>
+          <small class="text-muted"><%= theme.description %></a>.</small> 
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<hr><br>
+
+<h3><b>Your past orders:</b></h3>
+
+<% @user.boxes.each do |box| %>
+	 	<% theme_name = Theme.find_by(id: box.theme_id).name %>
+	 	<p> - <%= link_to theme_name, theme_url(theme_name) %> created by our stylist <%= link_to box.stylist.try(:first_name), stylist_url(box.stylist) %> on <%= box.date%></p>
+<% end %>
+<br>
 </body>
 </html>
 

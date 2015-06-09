@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :stylists
   resources :users
-  resources :themes
+  resources :themes do
+  resources :boxes
+  end  
   resources :sessions
   resources :home
 

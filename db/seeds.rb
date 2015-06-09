@@ -40,13 +40,13 @@ puts "Creating box themes..."
 summer_vacation = Theme.create(name: "Summer Vacation", image: "summervacation.jpg", description: "You've already picked that gorgeous vacation spot, and we all know that vacations go perfectly with beautiful and flattering summer outfits. Right?")
 new_business = Theme.create(name: "Working 9to?", image: "business.jpg", description: "You want to freshen up that business wardrobe with some new pieces. Let's get you some items that are professional, unique and comfy (dah!)")
 wedding = Theme.create(name: "That Big Event", image: "bigevent.jpg", description: "So you are invited to this BIG wedding everyone doesn't stop ranting about, but you wouldn't mind them talking about how beautiful your dress was.")
-custom = Theme.create(name: "Custom Made", image: "custom.jpg", description: "We are here for you. Let's chat and tailor a perfect box with your name on it")
+custom = Theme.create(name: "Custom Made", image: "custom.jpg", description: "You know best what you need and we are here for you! Let's chat and tailor together the perfect package with your name on it. So what are we waiting for??")
 # surprise = Theme.create(name: "Surprise Me", image: "surprise.jpg", description: "The world is full of surprises, here is another one - dedicated to you")
 
 
 # Create the boxes
 puts "Creating boxes..."
-box1 = Box.create(user_id: annaperelman.id, stylist_id: hannagutman.id, boxtype_id: custom.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "234253", comments: "its our first box together, hope I got her style right")
-box2 = Box.create(user_id: natalieshpiegel.id, stylist_id: hannagutman.id, boxtype_id: summer_vacation.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "4564", comments: "its our first box together, hope I got her style right")
-box3 = Box.create(user_id: annettesegev.id, stylist_id: rutizisser.id, boxtype_id: wedding.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "45637", comments: "its our first box together, hope I got her style right")
-box4 = Box.create(user_id: tovazisser.id, stylist_id: rutizisser.id, boxtype_id: new_business.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "234253", comments: "its our first box together, hope I got her style right")
+box1 = Box.create(user_id: annaperelman.id, stylist_id: hannagutman.id, theme_id: custom.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "234253", comments: "its our first box together, hope I got her style right")
+box2 = Box.create(user_id: natalieshpiegel.id, stylist_id: hannagutman.id, theme_id: summer_vacation.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "4564", comments: "its our first box together, hope I got her style right")
+box3 = Box.create(user_id: annettesegev.id, stylist_id: rutizisser.id, theme_id: wedding.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "45637", comments: "its our first box together, hope I got her style right")
+box4 = Box.create(user_id: tovazisser.id, stylist_id: rutizisser.id, theme_id: new_business.id, date: "2015", link: "assafd.asfd.com", order: "1234", invoice: "234253", comments: "its our first box together, hope I got her style right")

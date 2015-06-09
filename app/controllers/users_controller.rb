@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find_by(id: params["id"])
+    @themes = Theme.all
   	#@boxes = Box.where(user_id: params["id"])
   end
 
@@ -17,6 +18,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params["user"])
+    @user.stylist_id = Stylist.offset(rand(Stylist.count)).first.id
+    @user.save
     if @user.valid?
       redirect_to @user, notice: "Welcome!"
     else
@@ -31,7 +34,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find_by(id: params["id"])
   	@user.update(params["user"])
-   	redirect_to users_path
+   	redirect_to @user
   end
 
   def destroy

@@ -16,16 +16,16 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "boxes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "stylist_id"
-    t.integer "boxtype_id"
     t.string  "date"
     t.string  "link"
     t.integer "order"
     t.integer "invoice"
     t.text    "comments"
+    t.integer "theme_id"
   end
 
-  add_index "boxes", ["boxtype_id"], name: "index_boxes_on_boxtype_id"
   add_index "boxes", ["stylist_id"], name: "index_boxes_on_stylist_id"
+  add_index "boxes", ["theme_id"], name: "index_boxes_on_theme_id"
   add_index "boxes", ["user_id"], name: "index_boxes_on_user_id"
 
   create_table "stylists", force: :cascade do |t|
