@@ -7,7 +7,7 @@ class BoxesController < ApplicationController
 	  @boxes.stylist_id = current_user.stylist_id
 	  @boxes.date = Time.now.year
 	  @boxes.save
-	  redirect_to root_url
+	  redirect_to current_user, notice: "Thank you, your package is on the way..."
 	end
 
 	def create
