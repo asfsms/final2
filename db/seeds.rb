@@ -2,17 +2,17 @@
 puts "Deleting all records from the database..."
 User.delete_all
 Stylist.delete_all
-Style.delete_all
-Stylist_expertise.delete_all
+#Style.delete_all
+#Stylist_expertise.delete_all
 Box.delete_all
 Theme.delete_all
 
 # Create the styles
-puts "Creating styles..."
-young_pro = Style.create(style_type: "young professional", style_description: "25-35 professional who wants to look cool yet professional")
-plus_size_senior = Style.create(style_type: "Plus size senior", style_description: "55-75 woman who looks for chic yet flattering clothes")
-senior_pro = Style.create(style_type: "Senior professional", style_description: "55-75 attractive with a modern look")
-career_mother = Style.create(style_type: "Career Mother", style_description: "35-55 woman who runs a hectic lifestyle, wants to look good in comfortable clothing")
+#puts "Creating styles..."
+#young_pro = Style.create(style_type: "young professional", style_description: "25-35 professional who wants to look cool yet professional")
+#plus_size_senior = Style.create(style_type: "Plus size senior", style_description: "55-75 woman who looks for chic yet flattering clothes")
+#senior_pro = Style.create(style_type: "Senior professional", style_description: "55-75 attractive with a modern look")
+#career_mother = Style.create(style_type: "Career Mother", style_description: "35-55 woman who runs a hectic lifestyle, wants to look good in comfortable clothing")
 
 # Create the stylists
 puts "Creating stylists..."
@@ -24,22 +24,16 @@ shailabelletrop = Stylist.create(first_name: "Shai", last_name: "Labelle Trop", 
 
 # Create the users
 puts "Creating users..."
-annaperelman = User.create(first_name: "Anna", last_name: "Perelman", dob: "1986", date_joined: "2014", how_heard: "Facebook", phone_number: "(224) 124-4567", address: "123 Chicago Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "anna@gmail.com", password: "12345", height: "5'5", weight: "120", clothes_size: "6", shoe_size: "7.5", work_style: "Business Professional", evening_style: "Jeans & T-shirt", favorite_look: "1", style_id: young_pro.id, user_comments: "She is very laid back and loves color", stylist_id: hannagutman.id, date_started: "2015")
-natalieshpiegel = User.create(first_name: "Natalie", last_name: "Shpiegel", dob: "1986", date_joined: "2012", how_heard: "Facebook", phone_number: "(345) 124-4567", address: "133 Hinman Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "natalie@gmail.com", password: "12345", height: "5'2", weight: "110", clothes_size: "4", shoe_size: "6.5", work_style: "Business Casual", evening_style: "Jeans & T-shirt", favorite_look: "1", style_id: young_pro.id, user_comments: "She is very laid back and loves color", stylist_id: hannagutman.id, date_started: "2015")
-saritsegev = User.create(first_name: "Sarit", last_name: "Segev", dob: "1977", date_joined: "2011", how_heard: "Article", phone_number: "(534) 124-4567", address: "1233 Sherman Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "sarit@gmail.com", password: "12345", height: "5'0", weight: "130", clothes_size: "8", shoe_size: "6", work_style: "Casual", evening_style: "Jeans & T-shirt", favorite_look: "2", style_id: career_mother.id, user_comments: "She is very laid back and loves color", stylist_id: rutizisser.id, date_started: "2015")
-annettesegev = User.create(first_name: "Annette", last_name: "Segev",dob: "2951", date_joined: "2014", how_heard: "Friend", phone_number: "(644) 124-4567", address: "123 Davis Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "annette@gmail.com", password: "12345", height: "4'7", weight: "200", clothes_size: "14", shoe_size: "6", work_style: "Casual", evening_style: "Jeans & T-shirt", favorite_look: "3", style_id: plus_size_senior.id, user_comments: "She is very laid back and loves color", stylist_id: rutizisser.id, date_started: "2015")
-tovazisser = User.create(first_name: "Tova", last_name: "Zisser", dob: "1956", date_joined: "2010", how_heard: "Friend", phone_number: "(568) 124-4567", address: "123 Orrington Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "tova@gmail.com", password: "12345", height: "5'1", weight: "150", clothes_size: "10", shoe_size: "7", work_style: "Business Casual", evening_style: "chic", favorite_look: "4", style_id: senior_pro.id, user_comments: "She is very laid back and loves color", stylist_id: rutizisser.id, date_started: "2015")
+annaperelman = User.create(first_name: "Anna", last_name: "Perelman", dob: "1986", date_joined: "2014", how_heard: "Facebook", phone_number: "(224) 124-4567", address: "123 Chicago Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "anna@gmail.com", password: "12345", height: "5'5", weight: "120", top_size: "S", bottom_size: "6", shoe_size: "7.5", work_style: "Business Professional", evening_style: "Jeans & T-shirt", casual_style: "Jeans & T-shirt", special_style: "Jeans & T-shirt", user_comments: "She is very laid back and loves color", stylist_id: hannagutman.id, date_started: "2015", admin: "1")
+natalieshpiegel = User.create(first_name: "Natalie", last_name: "Shpiegel", dob: "1986", date_joined: "2012", how_heard: "Facebook", phone_number: "(345) 124-4567", address: "133 Hinman Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "natalie@gmail.com", password: "12345", height: "5'2", weight: "110", top_size: "S", bottom_size: "4", shoe_size: "6.5", work_style: "Business Casual", evening_style: "Jeans & T-shirt", casual_style: "Jeans & T-shirt", special_style: "Jeans & T-shirt", user_comments: "She is very laid back and loves color", stylist_id: hannagutman.id, date_started: "2015", admin: "1")
+saritsegev = User.create(first_name: "Sarit", last_name: "Segev", dob: "1977", date_joined: "2011", how_heard: "Article", phone_number: "(534) 124-4567", address: "1233 Sherman Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "sarit@gmail.com", password: "12345", height: "5'0", weight: "130", top_size: "S", bottom_size: "8", shoe_size: "6", work_style: "Casual", evening_style: "Jeans & T-shirt", casual_style: "Jeans & T-shirt", special_style: "Jeans & T-shirt", user_comments: "She is very laid back and loves color", stylist_id: rutizisser.id, date_started: "2015", admin: "1")
+annettesegev = User.create(first_name: "Annette", last_name: "Segev",dob: "2951", date_joined: "2014", how_heard: "Friend", phone_number: "(644) 124-4567", address: "123 Davis Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "annette@gmail.com", password: "12345", height: "4'7", weight: "200", top_size: "L", bottom_size: "14", shoe_size: "6", work_style: "Casual", evening_style: "Jeans & T-shirt", casual_style: "Jeans & T-shirt", special_style: "Jeans & T-shirt", user_comments: "She is very laid back and loves color", stylist_id: rutizisser.id, date_started: "2015", admin: "1")
+tovazisser = User.create(first_name: "Tova", last_name: "Zisser", dob: "1956", date_joined: "2010", how_heard: "Friend", phone_number: "(568) 124-4567", address: "123 Orrington Ave.", city: "Evanston", state: "IL", country: "United States", zip: "60201", email: "tova@gmail.com", password: "12345", height: "5'1", weight: "150", top_size: "M", bottom_size: "10", shoe_size: "7", work_style: "Business Casual", evening_style: "chic", casual_style: "Jeans & T-shirt", special_style: "Jeans & T-shirt", user_comments: "She is very laid back and loves color", stylist_id: rutizisser.id, date_started: "2015", admin: "1")
 
 # Create the Stylist_expertise
-puts "Creating stylists' expertise..."
-se1 = Stylist_expertise.create(stylist_id: rutizisser.id, style_id: plus_size_senior.id)
-se2 = Stylist_expertise.create(stylist_id: rutizisser.id, style_id: senior_pro.id)
-se3 = Stylist_expertise.create(stylist_id: rutizisser.id, style_id: career_mother.id)
-se4 = Stylist_expertise.create(stylist_id: hannagutman.id, style_id: young_pro.id)
-se5 = Stylist_expertise.create(stylist_id: hannagutman.id, style_id: career_mother.id)
-se6 = Stylist_expertise.create(stylist_id: asafsegev.id, style_id: young_pro.id)
-se7 = Stylist_expertise.create(stylist_id: sharonsegev.id, style_id: career_mother.id)
-se8 = Stylist_expertise.create(stylist_id: shailabelletrop.id, style_id: young_pro.id)
+#puts "Creating stylists' expertise..."
+#se1 = Stylist_expertise.create(stylist_id: rutizisser.id, style_id: plus_size_senior.id)
+
 
 # Create the boxe types
 puts "Creating box themes..."

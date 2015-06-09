@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	belongs_to :stylist
-	belongs_to :style
+	#belongs_to :style
 	has_many :boxes
 	has_many :themes, through: :boxes
 
@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 	validates :city, presence: true
 	validates :email, presence: true
-	validates :password_digest, presence: true
-	has_secure_password
+	validates :password, presence: true
+	has_secure_password 
 	
 end

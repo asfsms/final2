@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         # Yes, the user exists
         if @user.authenticate(params["password"])
           session["user_id"] = @user.id
-          redirect_to root_url
+            redirect_to @user
         else
           redirect_to new_session_url, alert: 'No way!!!'
         end

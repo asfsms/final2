@@ -1,20 +1,81 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-warning" role="alert">
+    <% @user.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
+  </div>
+<% end %>
+
+
 <%= form_for @user do |form| %>
   
-  <h3><div class="form-group">
-    <%= @user.first_name + " " + @user.last_name %>
-  </div></h3>
-   <div class="form-group">
+  <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email, class: "form-control" %>
+    <%= form.text_field :email, class: "form-control", placeholder: "Enter email" %>
   </div>
-   <div class="form-group">
+  <div class="form-group">
     <%= form.label :password %>
-    <%= form.password_field :password, class: "form-control" %>
+    <%= form.password_field :password, class: "form-control", placeholder: "Enter desired password" %>
+  </div>  
+ <hr><br>
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: "form-control" %>
   </div>
-   <div class="form-group">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number, class: "form-control" %>
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= form.label :dob, "Date of birth" %>
+    <%= form.date_field :dob, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :how_heard, "How did you hear about us?" %>
+    <%= form.select(:how_heard, [['Facebook'], ['Instagram'], ['Blog'], ['Newspaper Article'], ['Friend'], ['Other']], class: "form-control") %>
+  </div>  
+
+  <hr><br>
+    <div class="form-group">
+    <%= form.label :height %>
+    <%= form.text_field :height, class: "form-control" %>
+  </div>
+    <div class="form-group">
+    <%= form.label :weight %>
+    <%= form.text_field :weight, class: "form-control" %>
+  </div>
+    <div class="form-group">
+    <%= form.label :top_size, "What size do you normally wear for shirts, blouses and dresses?" %>
+    <%= form.select(:top_size, [['XS'],['S'],['M'],['L'],['XL'],['XXL'],['3XL']], class: "form-control") %>  
+  </div>
+  <div class="form-group">
+    <%= form.label :bottom_size, "What sizes do you normally wear for pants, jeans, and skirts?" %>
+    <%= form.select(:bottom_size, [[0],[2],[4],[6],[8],[10],[12],[14],[16],[18],[20]], class: "form-control") %>  
+  </div>
+
+  <div class="form-group">
+    <%= form.label :shoe_size %>
+    <%= form.select(:shoe_size, [[5],[5.5],[6],[6.5],[7],[7.5],[8],[8.5],[9],[9.5],[10],[10.5],[11]], class: "form-control") %>
+  </div>  
+  <hr><br>
+
+    <div class="form-group">
+    <%= form.label :work_style, "How do you dress for work" %>
+    <%= form.text_area :work_style, class: "form-control", placeholder: "We would love to know what you do for a leaving. Tell us a bit about what you do, your working enviornment, dress code and any other thought about what makes a business outfit perfect in your eyes" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :evening_style, "What do you wear when you go out?" %>
+    <%= form.text_area :evening_style, class: "form-control", placeholder: "What is the perfect going out outfit for you? is it a fitted mini-dress, a more casual Jeans & T-shirt, or...?" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :casual_style, "What's your day-to-day style?" %>
+    <%= form.text_area :casual_style, class: "form-control", placeholder: "What would you wear when you go with a friend for coffee?" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :special_style, "What would you wear when you need to dress up for a cocktail party or a wedding?" %>
+    <%= form.text_area :special_style, class: "form-control" %>
+  </div>
+  <hr><br>
    <div class="form-group">
     <%= form.label :address %>
     <%= form.text_field :address, class: "form-control" %>
@@ -32,40 +93,15 @@
     <%= form.text_field :country, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :zip %>
+    <%= form.label :zip, "Zip code" %>
     <%= form.text_field :zip, class: "form-control" %>
   </div>
+  <hr><br>
+
     <div class="form-group">
-    <%= form.label :height %>
-    <%= form.text_field :height, class: "form-control" %>
+    <%= form.label :user_comments, "Anything else we should know?" %>
+    <%= form.text_area :user_comments, class: "form-control" %>
   </div>
-    <div class="form-group">
-    <%= form.label :weight %>
-    <%= form.text_field :weight, class: "form-control" %>
-  </div>
-    <div class="form-group">
-    <%= form.label :clothes_size %>
-    <%= form.text_field :clothes_size, class: "form-control" %>
-  </div>
-    <div class="form-group">
-    <%= form.label :shoe_size %>
-    <%= form.text_field :shoe_size, class: "form-control" %>
-  </div>
-    <div class="form-group">
-    <%= form.label :work_style %>
-    <%= form.text_field :work_style, class: "form-control" %>
-  </div>
-    <div class="form-group">
-    <%= form.label :evening_style %>
-    <%= form.text_field :evening_style, class: "form-control" %>
-  </div>
-    <div class="form-group">
-    <%= form.label :user_comments %>
-    <%= form.text_field :user_comments, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :stylist %>
-    <%= form.collection_select(:stylist_id, Stylist.all, :id, :first_name, {}, {class: "form-control"}) %>
-  </div>  
-  <%= form.button 'Update Customer', class: "btn btn-success" %>
+  <%= form.button 'SAVE', class: "btn btn-default" %>
+  <br><br>
 <% end %>

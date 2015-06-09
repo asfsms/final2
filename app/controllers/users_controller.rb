@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :auth, only: [:index, :show]
+  skip_before_action :auth, only: [:new, :create]
 
   def index
     @users = User.all
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params["user"])
     if @user.valid?
-      redirect_to users_path, notice: "Great, we have a new customer!!!"
+      redirect_to @user, notice: "Welcome!"
     else
       render "new"
     end

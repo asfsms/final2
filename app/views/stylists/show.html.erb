@@ -1,19 +1,9 @@
 <img src="/assets/<%= @stylist.image %>" width="200">
 <h3> <%= @stylist.first_name %></h3>
 
-<p> Expertise:</p>
-<% @stylist_expertises.each do |stylist_expertise| %>
-      <p><%= Style.find_by(id: stylist_expertise.style_id).style_type %></p>
-<% end %>
-
 <br>
 <h4><i><b>Happy customers of <%= @stylist.first_name %>:</b></i></h4>
 
 <% @users.each do |user| %>
 	 	<p><%= user.first_name %></p>
 <% end %>
-
-<br>
-
-<a href="/stylists"> <h4> Our Stylists </h4> 
-<a href="/users"> <h4> Customer List </h4> 

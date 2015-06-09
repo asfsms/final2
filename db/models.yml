@@ -18,18 +18,23 @@ User:
   # Size and build:
   height: integer
   weight: integer
-  clothes_size: integer
+  top_size: integer
+  bottom_size: integer
   shoe_size: integer
   # Style - self report:
-  work_style: string
-  evening_style: string
-  favorite_look: integer # Pick a favorite look out of several options
+  work_style: text
+  evening_style: text
+  casual_style: text
+  special_style: text # Special event
   # Style - decided internally:
-  style_id: integer 
+  #style_id: integer 
   user_comments: text # free general text regarding the user
   # Stylist
   stylist_id: integer
   date_started: string
+  # Admin
+  admin: boolean
+
 
 Stylist:
   # Basic Information:
@@ -40,13 +45,14 @@ Stylist:
   email: string
   #password_digest: string
 
-Style: # segment type - defined internally: plus size, young professional, etc.
-  style_type: string
-  style_description: text
+# The followings should be used if we want integrate a more-sophisticated assignment of stylists to users
+# Style: # segment type - defined internally: plus size, young professional, etc.
+#   style_type: string
+#   style_description: text
 
-Stylist_expertise:
-  stylist_id: integer
-  style_id: integer
+# Stylist_expertise:
+#   stylist_id: integer
+#   style_id: integer
 
 Box:
   user_id: integer

@@ -28,19 +28,6 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "boxes", ["stylist_id"], name: "index_boxes_on_stylist_id"
   add_index "boxes", ["user_id"], name: "index_boxes_on_user_id"
 
-  create_table "styles", force: :cascade do |t|
-    t.string "style_type"
-    t.text   "style_description"
-  end
-
-  create_table "stylist_expertises", force: :cascade do |t|
-    t.integer "stylist_id"
-    t.integer "style_id"
-  end
-
-  add_index "stylist_expertises", ["style_id"], name: "index_stylist_expertises_on_style_id"
-  add_index "stylist_expertises", ["stylist_id"], name: "index_stylist_expertises_on_stylist_id"
-
   create_table "stylists", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -50,8 +37,8 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "themes", force: :cascade do |t|
     t.string "name"
-    t.text   "description"
     t.string "image"
+    t.text   "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,18 +57,19 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "password_digest"
     t.integer "height"
     t.integer "weight"
-    t.integer "clothes_size"
+    t.integer "top_size"
+    t.integer "bottom_size"
     t.integer "shoe_size"
-    t.string  "work_style"
-    t.string  "evening_style"
-    t.integer "favorite_look"
-    t.integer "style_id"
+    t.text    "work_style"
+    t.text    "evening_style"
+    t.text    "casual_style"
+    t.text    "special_style"
     t.text    "user_comments"
     t.integer "stylist_id"
     t.string  "date_started"
+    t.boolean "admin",           default: false
   end
 
-  add_index "users", ["style_id"], name: "index_users_on_style_id"
   add_index "users", ["stylist_id"], name: "index_users_on_stylist_id"
 
 end
